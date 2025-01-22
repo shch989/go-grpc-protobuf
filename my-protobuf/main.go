@@ -26,5 +26,6 @@ func main() {
 	// log 패키지가 사용하는 출력 대상을 logWrither로 설정
 	log.SetOutput(new(logWrither))
 
-	basic.BasicHello()
+	// basic.BasicHello()
+	basic.BasicUser()
 }
