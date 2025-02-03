@@ -13,11 +13,12 @@ func BasicUser() {
 		Username: "superman",
 		IsActive: true,
 		Password: []byte("supermanpassword"),
-		Emails:   []string{"superman@movie.com", "superman@dc.com"},
-		Gender:   basic.Gender_GENDER_MALE,
+		// Emails:   []string{"superman@movie.com", "superman@dc.com"},
+		// Gender:   basic.Gender_GENDER_MALE,
 	}
 
-	log.Println(&u)
+	jsonBytes, _ := protojson.Marshal(&u)
+	log.Println(string(jsonBytes))
 }
 
 func ProtoToJsonUser() {
@@ -32,4 +33,28 @@ func ProtoToJsonUser() {
 
 	jsonBytes, _ := protojson.Marshal(&p)
 	log.Println(string(jsonBytes))
+}
+
+func JsonToProtoUser() {
+	json := `
+	{
+		"id":98, 
+		"username":"wonderwoman", 
+		"is_active":true, 
+		"password":"d29uZGVyd29tYW5wYXNzd29yZA==", 
+		"emails":[
+			"wonderwoman@movie.com", 
+			"wonderwoman@dc.com"
+		], 
+		"gender":"GENDER_FEMALE"}
+	`
+	var p basic.User
+
+	err := protojson.Unmarshal([]byte(json), &p)
+
+	if err != nil {
+		log.Fatalln("Got error : ", err)
+	}
+
+	log.Println(&p)
 }
