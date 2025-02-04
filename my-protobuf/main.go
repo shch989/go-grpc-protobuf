@@ -3,7 +3,7 @@ package main
 import (
 	"fmt" // 표준 출력 및 문자열 처리에 사용
 	"log" // 로그 처리에 사용
-	"my-protobuf/basic"
+	"my-protobuf/jobsearch"
 	"time" // 시간 관련 기능 제공
 )
 
@@ -27,7 +27,10 @@ func main() {
 	log.SetOutput(new(logWrither))
 
 	// basic.BasicHello()
-	basic.BasicUser()
+	// basic.BasicUser()
 	// basic.ProtoToJsonUser()
 	// basic.JsonToProtoUser()
+	// basic.BasicUserGroup()
+	jobsearch.JobSearchCandidate()
+	jobsearch.JobSearchSoftware()
 }

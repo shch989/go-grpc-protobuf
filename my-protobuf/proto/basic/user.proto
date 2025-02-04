@@ -19,4 +19,18 @@ message User {
 
   repeated string emails = 16;
   Gender gender = 17;
+  Address address = 18;
+}
+
+message Address {
+  string street = 1;
+  string city = 2;
+  string country = 3;
+
+  Coordinate coordinate = 16;
+
+  message Coordinate {
+    double latitude = 1;
+    double longitude = 2;
+  }
 }

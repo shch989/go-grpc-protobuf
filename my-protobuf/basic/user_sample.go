@@ -8,6 +8,16 @@ import (
 )
 
 func BasicUser() {
+	addr := basic.Address{
+		Street:  "Daily Planet",
+		City:    "Metropolis",
+		Country: "US",
+		Coordinate: &basic.Address_Coordinate{
+			Latitude:  4070797893425118,
+			Longitude: -74.01163838107261,
+		},
+	}
+
 	u := basic.User{
 		Id:       99,
 		Username: "superman",
@@ -15,6 +25,7 @@ func BasicUser() {
 		Password: []byte("supermanpassword"),
 		// Emails:   []string{"superman@movie.com", "superman@dc.com"},
 		// Gender:   basic.Gender_GENDER_MALE,
+		Address: &addr,
 	}
 
 	jsonBytes, _ := protojson.Marshal(&u)
