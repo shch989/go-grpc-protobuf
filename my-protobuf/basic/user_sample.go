@@ -161,3 +161,33 @@ func BasicUnmarshalAnyIs() {
 		log.Println("Not PaperMail, but :", a.TypeUrl)
 	}
 }
+
+func BasicOneof() {
+	// socialMedia := basic.SocialMedia{
+	// 	SocialMediaPlatform: "byteMe",
+	// 	SocialMediaUsername: "aquaman",
+	// }
+
+	// ecomm := basic.User_SocialMedia{
+	// 	SocialMedia: &socialMedia,
+	// }
+
+	instantMessaging := basic.InstantMessaging{
+		InstantMessagingProduct:  "whatsup",
+		InstantMessagingUsername: "atlantis.king",
+	}
+
+	ecomm := basic.User_InstantMessaging{
+		InstantMessaging: &instantMessaging,
+	}
+
+	u := basic.User{
+		Id:                    96,
+		Username:              "aquaman",
+		IsActive:              true,
+		ElectronicCommChannel: &ecomm,
+	}
+
+	jsonBytes, _ := protojson.Marshal(&u)
+	log.Println(string(jsonBytes))
+}

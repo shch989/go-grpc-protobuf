@@ -35,5 +35,6 @@ func main() {
 	// jobsearch.JobSearchSoftware()
 	// basic.BasicUnmarshalAnyKnown()
 	// basic.BasicUnmarshalAnyNotKnown()
-	basic.BasicUnmarshalAnyIs()
+	// basic.BasicUnmarshalAnyIs()
+	basic.BasicOneof()
 }
