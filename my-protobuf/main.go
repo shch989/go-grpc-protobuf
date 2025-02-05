@@ -27,7 +27,7 @@ func main() {
 	log.SetOutput(new(logWrither))
 
 	// basic.BasicHello()
-	basic.BasicUser()
+	// basic.BasicUser()
 	// basic.ProtoToJsonUser()
 	// basic.JsonToProtoUser()
 	// basic.BasicUserGroup()
@@ -37,4 +37,6 @@ func main() {
 	// basic.BasicUnmarshalAnyNotKnown()
 	// basic.BasicUnmarshalAnyIs()
 	// basic.BasicOneof()
+	// basic.WriteToFileSample()
+	basic.ReadFromFileSample()
 }
