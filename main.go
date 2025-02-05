@@ -38,5 +38,7 @@ func main() {
 	// basic.BasicUnmarshalAnyIs()
 	// basic.BasicOneof()
 	// basic.WriteToFileSample()
-	basic.ReadFromFileSample()
+	// basic.ReadFromFileSample()
+	// basic.WriteToJSONSample()
+	basic.ReadFromJSONSample()
 }
