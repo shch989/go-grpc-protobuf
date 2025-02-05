@@ -30,6 +30,8 @@ message User {
     SocialMedia social_media = 20 [json_name = "social_media"];
     InstantMessaging instant_messaging = 21 [json_name = "instant_messaging"];
   }
+
+  map<string, uint32> skill_rating = 22 [json_name = "skill_rating"];
 }
 
 message Address {

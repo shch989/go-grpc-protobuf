@@ -24,6 +24,7 @@ func BasicUser() {
 	}
 
 	comm := randomCommunicationChannel()
+	sr := map[string]uint32{"fly": 5, "speed": 5, "durability": 4}
 
 	u := basic.User{
 		Id:       99,
@@ -34,6 +35,7 @@ func BasicUser() {
 		// Gender:   basic.Gender_GENDER_MALE,
 		Address:              &addr,
 		CommunicationChannel: &comm,
+		SkillRating:          sr,
 	}
 
 	jsonBytes, _ := protojson.Marshal(&u)
