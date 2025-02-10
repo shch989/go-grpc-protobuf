@@ -28,3 +28,14 @@ protoc:
 
 .PHONY: build
 build: clean protoc tidy
+
+.PHONY: run
+run:
+	go run main.go
+
+.PHONY: execute
+execute: build run
+
+.PHONY: protoc-validate
+protoc-validate:
+	protoc --validate_out="lang=go:./generated" --go_opt=module=${GO_MODULE} --go_out=. ./proto/car/*.proto
