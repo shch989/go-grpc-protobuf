@@ -6,10 +6,13 @@ import (
 	"my-protobuf/protogen/basic"
 	"time"
 
+	"google.golang.org/genproto/googleapis/type/date"
+	"google.golang.org/genproto/googleapis/type/latlng"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/known/anypb"
+	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 func BasicUser() {
@@ -26,6 +29,17 @@ func BasicUser() {
 	comm := randomCommunicationChannel()
 	sr := map[string]uint32{"fly": 5, "speed": 5, "durability": 4}
 
+	birthDate := &date.Date{
+		Year:  2000,
+		Month: 5,
+		Day:   27,
+	}
+
+	lastKnownLocation := &latlng.LatLng{
+		Latitude:  -6.29847717,
+		Longitude: 106.8290577,
+	}
+
 	u := basic.User{
 		Id:       99,
 		Username: "superman",
@@ -36,6 +50,9 @@ func BasicUser() {
 		Address:              &addr,
 		CommunicationChannel: &comm,
 		SkillRating:          sr,
+		LastLoginTimestamp:   timestamppb.Now(),
+		BirthDate:            birthDate,
+		LastKnownLocation:    lastKnownLocation,
 	}
 
 	jsonBytes, _ := protojson.Marshal(&u)
